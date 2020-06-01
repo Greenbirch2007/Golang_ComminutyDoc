@@ -239,11 +239,124 @@ go语言中使用在变量名前添加&操作符(前缀）来获取变量的内�
 
 ptr := &v // v的类型T
 
+其中v代表被取地址的变量，变量v的地址使用变量ptr进行接收
+ptr的类型为 *T，称作T的指针类型
+*代表指针
+
+变量，指针，地址  每个变量都有地址，这个地址就是指针的值
+
+从指针获取指针指向的值
+
+当使用&操作符对普通变量进行取地址操作并得到变量的指针后，
+可以对象指针使用*操作，也就是指针
+
+
+
+取地址操作符&和取值操作符*是一对互补操作
+&取地址，
+×根据地址取出地址指向的指向的值
+
+
+变量，指针地址，指针变量，取地址，取值的关系
+
+1.对变量进行取地址操作使用&,可以获得这个变量的指针变量
+2. 指针变量的值是指针地址
+
+& 指针地址，指针类型
+× 取值
+&× 指针取值
 
 
 
 
+3. 对指针变量进行取值操作*,可以获得指针变量指向的原变量的值
 
 
+使用指针修改值
+
+铜鼓欧指针不仅可以取值，也可以修改值
+
+
+示例： 使用指针变量获取命令行的输入细腻系
+
+
+flag包实现了堆命令行的解析
+flag包使得开发命令行工具更加简单
+
+
+通过提前定义一些命令行指令和对应的变量，并在运行时输入对应的参数
+经过flag包的解析后即可获取命令行的数据
+
+创建指针的方法--new()函数
+
+
+new(类型)
+
+
+new()函数可以创建一个对应类型的指针，创建过程会分配内存
+被床架你的指针指向默认值
+Go逃逸分析最基本的原则是：如果一个函数返回对一个变量的引用，那么它就会发生逃逸。
+
+指针
+
+foo()函数返回一个局部变量的指针
+
+foo函数里的变量t逃逸了，
+
+堆上动态分配内存比栈上静态分配内存，开销大很多
+
+const ，用于存储不会改变的数据
+
+const pi = 3.14
+
+const iota
+
+无类型常量
+
+
+const+iota 间接实现枚举
+
+枚举类型转换为字符串
+
+
+type 关键字(类型别名)
+
+
+type byte = uint8
+type rune = int32
+
+
+type TypeAlias = Type
+
+类型别名和类型定义
+
+非本地类型不能定义方法
+
+在结构体成员嵌入时使用别名
+
+ 结构体重命名类似继承类
+
+
+go的语法元素5个
+标识符
+关键字
+操作符
+分隔符
+字面量
+
+
+break default func interface select
+case defer go map struct
+chan else goto package switch
+const fallthrough if range type
+continue for import return var 
+
+
+
+append bool byte cap close complex complex64 complex128
+unit16 copy false float32 float64 imag int int8 int16
+uint32 int32 int64 iota len make new nil  
+panic uint64 print println real recover
+string true uint uint8 uintptr
 
 
