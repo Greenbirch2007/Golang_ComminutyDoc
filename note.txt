@@ -1,4 +1,4 @@
-
+package main
 多重赋值在go语言的错误处理和函数返回值中会大量使用
 
 
@@ -358,5 +358,176 @@ unit16 copy false float32 float64 imag int int8 int16
 uint32 int32 int64 iota len make new nil  
 panic uint64 print println real recover
 string true uint uint8 uintptr
+
+strconv包：字符串和数值类型的相互转换
+
+
+strconv
+
+字符串转int: Atoi()
+int转字符串 ：Itoa()
+
+Parse类函数将string转换为指定的数值类型：
+ParseBool(), ParseFloat(), ParseInt(),ParseUint()
+
+
+Format类函数将指定的数值类型转string类型
+FormatBool(),FormatFloat(),FormatInt(),FormatUint()
+
+Append类函数用于将指定的数值类型转换成字符串后追加到一个切片中：
+AppendBool(),AppendFloat(),AppendInt(),AppendUint()
+
+
+
+func Atoi(s string)(int,error)
+
+
+由于string类型可能无法转换为int类型，所以这个函数有两个返回值：第一个返回值是转换
+成的int类型的值，第二个返回值是转换是否成功
+
+ParseFloat() 只能接收float64类型的浮点数
+ParseInt()和ParseUint()有3个参数：
+
+
+s：表示需要转换的字符串
+bitSize:表示转换为多少位的int或uint
+base 表示以什么进制的方式去解析给定的字符串
+
+func ParseInt(s string,base int,bitSize int)(i int64,err error)
+func ParseUint(s string,base int,bitSize int)(uint64,error)
+
+
+
+func FormatInt(i int64,base int) string
+
+
+容器(container)
+
+变量在一定程度上能满足函数及代码要求
+
+复杂类型，具有各种形式的存储和处理数据的功能，就是容器
+
+
+C语言没有提供容器封装，开发者需要自己根据性能需要进行封装，或使用第三方提供的容器
+
+c++语言的容器通过标准库提供，如vector对应数组，list对应双链表，map对应映射
+
+数组
+
+数组是一个由固定长度特定类型元素组成的序列，一个数组可以由零个或多个元素组成。
+因为数组的长度是固定的。所以在go语言中很少直接使用数组
+
+和数组对应的数据类型是Slice(切片)，Slice是可以增长和收缩的动态序列
+
+
+var 数组变量名[元素数量]Type
+数组变量名：数组声明及使用时的变量名
+元素数量：数组的元素数量，可以是一个表达式，但最终通过编译器计算的结果必须是整型数值，元素
+数量不能含有运行时才能确认大小的数值
+
+
+Type:可以是任意基本类型，包含数组本身，类型为数组本身时，可以实现多维数组
+
+
+数组的每个元素都可以通过索引下标来访问，索引下标的范围是从0开始到数组长度减去1的位置，
+内置函数len()可以返回数组中元素额个数
+
+
+默认情况下，数组的每个元素都会被初始化为元素类型对应的零值，对应数字类型来说就是0
+同时也可以使用数字下面的字面值语法
+用一组值来初始化数组
+
+
+在数组的定义中，如果在数组长度的位置出现"..."省略号，
+则表示数组的长度是根据初始化中的个数来计算的
+因此上莫得
+
+数组的长度是数组类型的一个组成部分，因此[3]int和[4]int是两种不同数组类型
+数组的长度必须是常量表达式，因为数组的长度需要在编译阶段确定
+
+
+比较两个数组是否相等
+== != 
+只有当两个数组的所有元素都是相等的数组才是相等的，不能比较两个类型不同的数组，
+否则程序将无法完成编译
+
+遍历数组---访问每一个数组元素
+
+
+go允许使用多维数组，因为数组属于值类型，所以多维数组的所有维度都会在创建时自动初始化零值，
+多维数组尤其适合管理具有父子关系或与坐标系相关联的数组
+
+var array_name [size1][size2] ...[sizen] array_type
+
+
+二维数组本质上是由多个以为数组组成的
+
+
+切片slice 是数组的一个连续片段的引用，所以切片是一个引用类型(类似c/c++中的数组类型，或python中的list类型)
+这个片段可以是整个数组，也可以是起始或终止索引标识的一些项的子集
+终止索引标识的项不包括在切片内
+
+
+切片的内部结构包含地址，大小和容量，切片一般用于快速地操作一块数据集合
+
+
+从连续内存区域生成切片是常见的操作
+
+slice[start:end]
+
+
+1. 从指定范围中生成切片
+2. 表示原有切片[:]
+3.重置切片，清空拥有的元素[0:0]
+
+
+
+使用类型分支判断接口类型
+error接口：返回错误信息
+error 基本用法
+type error interface {
+    Error() string
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
