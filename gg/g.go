@@ -1,30 +1,16 @@
 package main
 
-import "fmt"
-
-type ChipType int
-
-const (
-	None ChipType = iota
-	CPU // Z中央处理器
-	GPU //图形处理器
+import (
+	"container/list"
+	"fmt"
 )
 
+func main()  {
+	l := list.New()
+	l.PushBack("cannon")
+	l.PushFront("99")
 
-func (c ChipType) String() string{
-	switch c {
-	case None:
-		return "None"
-	case CPU:
-		return "CPU"
-	case GPU:
-		return "GPU"
-
+	for i := l.Front(); i!= nil; i=i.Next(){
+		fmt.Println(i.Value)
 	}
-
-	return "N/A"
-}
-
-func main(){
-	fmt.Printf("%s %d", CPU, CPU)
 }
