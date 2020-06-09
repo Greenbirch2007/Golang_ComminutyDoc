@@ -1,16 +1,12 @@
-package main
 
-import (
-	"container/list"
-	"fmt"
-)
 
-func main()  {
-	l := list.New()
-	l.PushBack("cannon")
-	l.PushFront("99")
-
-	for i := l.Front(); i!= nil; i=i.Next(){
-		fmt.Println(i.Value)
-	}
+func walkstmt(n *Node) *Node{
+	switch n.Op{
+	case ODCL:
+		v := n.Left
+		if v.Class() == PAUTOHEAP{
+			if prealloc[v] == nil{}
+			
+}
+}
 }
