@@ -1,12 +1,21 @@
+package main
+
+import "fmt"
+
+func main(){
+	c := make(chan int)
+	go func(){
+		c <-1
+		c <-2
+		close(c)
+
+		c <-6
 
 
-func walkstmt(n *Node) *Node{
-	switch n.Op{
-	case ODCL:
-		v := n.Left
-		if v.Class() == PAUTOHEAP{
-			if prealloc[v] == nil{}
-			
-}
-}
+	}()
+	for v:= range c{
+		fmt.Println(
+			v)
+	}
+
 }
