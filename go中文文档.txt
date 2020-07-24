@@ -1,0 +1,55 @@
+Effective Go（官方文档）笔记
+自动局部变量提升（编译期完成？）：return &...;
+内置函数：
+new/make
+copy, append
+delete
+range（这是关键字吧？因为后面没有()）
+array是值对象
+slice：引用array
+2维切片(略)
+map
+if seconds, ok := timezone[tz]; ok { ...
+func (f *File) Read(buf []byte) (n int, err error) { ...
+注意这里给*File类型增加了一个Read方法，buf是传出参数（slice是引用！）
+fmt.Printf("...%d...", 1); //C风格的;
+fmt.Printf(os.stdout, args, ...); //C++风格的？这里args需要实现io.Writer接口（序列化？）
+ %v, %#v
+ %T
+type MyString string
+switch t := t.(type){ ... //Go的运行时内省是怎么实现的？这意味着每一个value/ref都包含了一个type域字段吗？
+变参：v ...interface{} ==> v... （不加...的单独v可看作slice，可应用range操作）
+func append(slice []T, elements ...T) []T
+append：实际上不能在运行时决定T的类型，需编译器在编译时的支持（所谓的builtin函数）
+defer：推迟到func结束前执行，即使是panic（函数作用域，非block）
+C/C++/Java程序员可以理解为func内部整体包以try{...}finally{...}？
+枚举：const { _= iota \n A B C ... }
+变量组声明：var { ... }
+每个文件中的init()：用于验证初始状态？
+sort回调：Len() int, Less(i, j int) bool, Swap(i, j int) //这相当于把排序对象当作一个C++里的RandomAccessIterator接口？
+类型转换
+str := value.(string) //如类型不匹配则runtime error;
+net/http
+type Handler interface {
+ServHTTP(w ResponseWriter, req *Request)
+=> 一旦有了Handler实例，向http注册：http.Handle("/path", handler)
+tie a channel to web page ?
+为func扩展方法：
+type HandlerFunc func(ResponseWriter, *Request)
+func (f HandlerFunc) ServHTTP(w ..., req ...) { f(w, req) }
+_ = fd //unused, WebKit/Chromium里经常可以见到这种写法，未使用的变量显式标记，未用到的代码要删除
+Embedding（type的组合）
+type struct里可以直接加入其他type的名字，无需变量名字，此时相当于type traits的mixin了？
+Share by communicating
+Goroutines：the stack starts small（可动态调整的栈）——这可能就是Go支持大规模并发程序的原因了
+<-chan：等待完成消息（自动阻塞）
+* for循环变量（设为i）是重用的？=>
+go func(i ...){ ... )(i) //传递进闭包，产生新的副本
+i := i //名字的shadowing（这个特性C语言是没有的，C++的namespace可以认为类似？）
+Channels of channels
+并行：runtime.GOMAXPROCS(ncpu)
+panic/recover
+recover在unwinding时执行，即defer func() {...}中。
+
+p56
+p56
