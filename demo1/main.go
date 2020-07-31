@@ -1,13 +1,31 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"fmt"
+	"math/rand"
+	"reflect"
+)
 
-func main() {
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-	r.Run() // 监听并在 0.0.0.0:8080 上启动服务
+type MyC struct {
+ 	
+ }
+
+func (m MyC) Generate(rand *rand.Rand, size int) reflect.Value {
+	panic("implement me")
+}
+
+func main(){
+	var  n = 30
+	if n>24{
+		fmt.Println("成年人")
+		goto xxx
+
+	}
+	fmt.Println("aaa")
+	fmt.Println("bbb")
+	xxx:
+	fmt.Println("ccc")
+	fmt.Println("ddd")
+
+
 }
