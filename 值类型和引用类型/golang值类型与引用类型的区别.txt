@@ -1,0 +1,49 @@
+golang值类型与引用类型的区别
+
+
+golang值类型与引用类型的区别
+
+langzi989 2020-01-10 20:51:44  510  收藏 4
+分类专栏： golang学习
+版权
+1、golang值类型与引用类型的区别
+1.1 本质存储区别
+值类型与引用类型的区别主要在于：
+
+值类型的变量： 存储当前类型的存储的数据。值类型包括数值类型、bool、string、数组、struct结构体
+引用类型的变量：存储地址，该地址对应的空间才是真正存储的数据。引用类型包括：指针、slice切片、管道chan、map、以及interface等类型。
+注意：golang中的引用类型和值类型的区别与C++中的指针类型和值类型的区别类似。而C++中的引用类型与golang中的引用类型不是同一个概念。
+
+1.2 使用区别
+值类型：声明变量之后可以直接使用
+引用类型：对于引用类型，若使用var进行声明变量，必须使用make函数对其进行分配内存。若不初始化，该变量默认值为nil，向其添加元素时会导致panic。
+2、示例验证
+我们可以通过下面的小程序来验证上述的想法:
+
+对于int类型的a，将其转换为地址进行打印，结果打印表示错误类型，不是地址类型.a:%!p
+对于map类型b，将其转换为地址打印可看出其存储的为指针类型且为0xc000078150，将其传入函数中，该函数接受的参数值也为该变量存储的地址值test:0xc000078150。
+package main
+
+import "fmt"
+
+func test(test map[string]string) {
+    // test:0xc000078150
+	fmt.Printf("test:%p\n", test)
+	// &test:0xc000098028
+	fmt.Printf("&test:%p\n", &test)
+}
+
+func main() {
+	a := 10
+	// a:%!p(int=10)
+	fmt.Printf("a:%p\n", a)
+	// &a:0xc000096010
+	fmt.Printf("&a:%p\n", &a)
+
+	b := map[string]string{}
+	// b:0xc000078150
+	fmt.Printf("b:%p\n", b)
+	// &b:0xc000098020
+	fmt.Printf("&b:%p\n", &b)
+	test(b)
+}
