@@ -2,30 +2,24 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
-	"reflect"
+	"sort"
 )
 
-type MyC struct {
- 	
- }
+func main() {
+	//长度是线段，容量是射线
+	//var sliceA = make([]int,4,8)
+	//sliceA[0]=10
+	//sliceA[1]=10
+	//sliceA[2]=10
+	//fmt.Println(sliceA)
+	//s1 := "big"
+	//bytestr := []byte(s1)
+	//bytestr[0] ='p'
+	//fmt.Println(string(bytestr))
+	// string----byte----string
+	intL := []int{2,6,9,1,6,66}
 
-func (m MyC) Generate(rand *rand.Rand, size int) reflect.Value {
-	panic("implement me")
+	sort.Sort(sort.Reverse(sort.IntSlice(intL)))
+	fmt.Println(intL)
 }
 
-func main(){
-	var  n = 30
-	if n>24{
-		fmt.Println("成年人")
-		goto xxx
-
-	}
-	fmt.Println("aaa")
-	fmt.Println("bbb")
-	xxx:
-	fmt.Println("ccc")
-	fmt.Println("ddd")
-
-
-}

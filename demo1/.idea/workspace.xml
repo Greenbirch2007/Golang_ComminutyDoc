@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf443b72-4cd6-42bd-8912-de2c0c06896a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +46,7 @@
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunManager">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -76,39 +77,40 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="647" y="126" key="FileChooserDialogImpl" timestamp="1596200250230">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="647" y="126" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1596200250230" />
-    <state width="1286" height="163" key="GridCell.Tab.0.bottom" timestamp="1596204639627">
+    <state width="1286" height="163" key="GridCell.Tab.0.bottom" timestamp="1596551490638">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1286" height="163" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1596204639627" />
-    <state width="1286" height="163" key="GridCell.Tab.0.center" timestamp="1596204639627">
+    <state width="1286" height="163" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1596551490638" />
+    <state width="1286" height="163" key="GridCell.Tab.0.center" timestamp="1596551490637">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1286" height="163" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1596204639627" />
-    <state width="1286" height="163" key="GridCell.Tab.0.left" timestamp="1596204639626">
+    <state width="1286" height="163" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1596551490637" />
+    <state width="1286" height="163" key="GridCell.Tab.0.left" timestamp="1596551490637">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1286" height="163" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1596204639626" />
-    <state width="1286" height="163" key="GridCell.Tab.0.right" timestamp="1596204639627">
+    <state width="1286" height="163" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1596551490637" />
+    <state width="1286" height="163" key="GridCell.Tab.0.right" timestamp="1596551490637">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1286" height="163" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1596204639627" />
-    <state x="271" y="16" key="SettingsEditor" timestamp="1596201297871">
+    <state width="1286" height="163" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1596551490637" />
+    <state x="271" y="16" key="SettingsEditor" timestamp="1596285566435">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="271" y="16" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1596201297871" />
+    <state x="271" y="16" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1596285566435" />
     <state x="919" y="264" key="com.goide.refactor.extractInterface.GoExtractInterfaceDialog" timestamp="1596200957954">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="919" y="264" key="com.goide.refactor.extractInterface.GoExtractInterfaceDialog/0.0.1366.728@0.0.1366.728" timestamp="1596200957954" />
-    <state x="995" y="49" key="search.everywhere.popup" timestamp="1596202979811">
+    <state x="995" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1596549638894">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="995" y="49" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1596202979811" />
+    <state x="995" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1596549638894" />
   </component>
 </project>
