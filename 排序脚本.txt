@@ -1,0 +1,115 @@
+package main
+
+import "fmt"
+
+
+func sumF(x,y int)int{
+	return x+y
+}
+
+
+func calc(x,y int)(sum ,sub int){
+	fmt.Println(sum,sub)
+	sum = x+y
+	sub = x-y
+	return
+}
+
+
+func sortIntAsc(slice []int)[]int{
+	for i := 0; i < len(slice); i++ {
+		for j := i+1; j < len(slice); j++ {
+			if slice[i]>slice[j]{
+				temp := slice[i]
+				slice[i] = slice[j]
+				slice[j] = temp
+			}
+		}
+	}
+	return slice
+}
+func main() {
+	var sliceA = []int{12,3,6,9,41,6}
+	f := sortIntAsc(sliceA)
+	fmt.Println(f)
+
+ }
+
+
+
+func mapSort(map1 map[string]string)string{
+	var sliceKey []string
+	for k, _ := range map1 {
+		sliceKey=append(sliceKey,k)
+	}
+	sort.Strings(sliceKey)
+	var str string
+	for _, v := range sliceKey {
+		str+=fmt.Sprintf("%v--->%v",v,map1[v])
+	}
+	return str
+}
+
+
+package main
+
+import (
+	"fmt"
+	"sort"
+)
+
+
+func sumF(x,y int)int{
+	return x+y
+}
+
+
+func calc(x,y int)(sum ,sub int){
+	fmt.Println(sum,sub)
+	sum = x+y
+	sub = x-y
+	return
+}
+
+
+func sortIntAsc(slice []int)[]int{
+	for i := 0; i < len(slice); i++ {
+		for j := i+1; j < len(slice); j++ {
+			if slice[i]>slice[j]{
+				temp := slice[i]
+				slice[i] = slice[j]
+				slice[j] = temp
+			}
+		}
+	}
+	return slice
+}
+
+func mapSort(map1 map[string]string)string{
+	var sliceKey []string
+	for k, _ := range map1 {
+		sliceKey=append(sliceKey,k)
+	}
+	sort.Strings(sliceKey)
+	var str string
+	for _, v := range sliceKey {
+		str+=fmt.Sprintf("%v--->%v",v,map1[v])
+	}
+	return str
+}
+func main() {
+	m1 := map[string]string{
+		"username":"уетч",
+		"age":"11",
+		"sex":"s",
+
+	}
+	fmt.Println(mapSort(m1))
+
+ }
+
+
+
+
+
+
