@@ -1,0 +1,90 @@
+package main
+
+import "fmt"
+
+func fun1(n int){
+	//函数递归调用。函数自己调用自己
+	if n >0{
+		fmt.Println(n)
+		n--
+		fun1(n)
+	}
+
+}
+
+func main() {
+
+	fun1(9)
+
+ }
+
+
+
+
+package main
+
+import "fmt"
+
+func fun1(n int){
+	//函数递归调用。函数自己调用自己
+	if n >0{
+		fmt.Println(n)
+		n--
+		fun1(n)
+	}
+
+}
+
+func fn2(n int)int{
+	if n>1{
+		return n+fn2(n-1)
+	}else{
+		return 1
+	}
+
+}
+func main() {
+
+	fmt.Println(fn2(100))
+
+ }
+
+
+
+package main
+
+import "fmt"
+
+func fun1(n int){
+	//函数递归调用。函数自己调用自己
+	if n >0{
+		fmt.Println(n)
+		n--
+		fun1(n)
+	}
+
+}
+
+func fn2(n int)int{
+	if n>1{
+		return n+fn2(n-1)
+	}else{
+		return 1
+	}
+
+}
+
+func fn3(n int){
+	if n>1{
+		return n*fn3(n-1)
+	}else{
+		return 1
+	}
+}
+func main() {
+
+	fmt.Println(fn2(100))
+
+ }
+
+

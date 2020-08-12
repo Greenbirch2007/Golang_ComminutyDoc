@@ -1,54 +1,36 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
+// 模拟一个读取文件的方法
 
-type myInt int
-
-func add (x,y int)int{
-	return x+y
-}
-func sub (x,y int)int{
-	return x-y
-}
-
-type calcType func(int,int)int
-
-func do(o string) calcType{
-	switch o {
-	case "+":
-		return add
-	case "-":
-		return sub
-	case "*":
-		return func(x,y int)int{
-			return x*y
-		}
-	default:
+func readFile(fileName string)error{
+	if fileName == "main.go"{
 		return nil
+	}else{
+		return errors.New("读取文件失败")
 	}
 }
 
+func myFn(){
+	defer func() {
+		err := recover()
+		if err!=nil{
+			fmt.Println("给管理员发送邮件")
+
+		}
+	}()
+	err :=readFile("xx.go")
+	if  err !=nil{
+		panic(err)
+	}
+}
 
 func main() {
-	//匿名函数 匿名自执行函数
-	func(){
-		fmt.Println("这是匿名函数")
-	}()
+	myFn()
+	fmt.Println("继续执行")
 
-	f := func(x,y int) int{
-		a := x*y
-		return a
-
-	}(6,9)
-	fmt.Println(f)
-
-	//匿名函数自执行函数接收参数
-	func(x,y int){
-		fmt.Println(x*y)
-
-	}(9,9)
-
-
- }
-
+}
 

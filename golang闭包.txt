@@ -1,0 +1,67 @@
+
+
+golang闭包
+
+全局变量特点：
+1.常驻内存
+2.污染全局
+
+局部变量特点
+1.不常住内存
+2 不污染全局
+
+闭包：
+
+1.可以让一个变量常驻内存
+2.可以让一个变量不污染全局
+
+闭包
+
+1.闭包是指有权访问另一个函数作用于中的变量的函数
+2.创建闭包的常见方式就是在一个函数内部创建另一个函数
+通过另一个函数访问这个函数的局部变量
+
+注意，由于闭包里作用域返回的局部变量资源不会被立刻销毁回收
+所以可能会占用更多的内存，过度使用闭包会导致
+性能下降，建议在非常有必要时才使用闭包
+
+
+
+package main
+
+import "fmt"
+
+//闭包的写法，函数里面嵌套一个函数，最后返回内层函数,外层函数接收一个函数
+func adder1() func() int{
+	var i = 10
+	return func() int{
+		return i+2
+	}
+}
+
+func adder2() func(x int)int{
+	var i =10 //常驻内存，不污染全局
+
+	return func(x int) int {
+		i +=x
+		return i
+	}
+}
+
+func main() {
+	var fn1 = adder1()//表示执行方法
+	fmt.Println(fn1())
+	fmt.Println(fn1())
+	fmt.Println(fn1())
+
+	var fn2 = adder2()
+	fmt.Println(fn2(10))
+	fmt.Println(fn2(10))
+	fmt.Println(fn2(10))
+
+
+
+
+ }
+
+

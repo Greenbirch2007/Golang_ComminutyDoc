@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf443b72-4cd6-42bd-8912-de2c0c06896a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,9 +108,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="919" y="264" key="com.goide.refactor.extractInterface.GoExtractInterfaceDialog/0.0.1366.728@0.0.1366.728" timestamp="1596200957954" />
-    <state x="995" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1596549638894">
+    <state x="995" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597236088251">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="995" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1596549638894" />
+    <state x="995" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597236088251" />
   </component>
 </project>
