@@ -46,7 +46,7 @@
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="goland.project.structure" />
   </component>
   <component name="RunManager">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -84,33 +84,33 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="647" y="126" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1596200250230" />
-    <state width="1286" height="163" key="GridCell.Tab.0.bottom" timestamp="1596551490638">
+    <state width="1323" height="178" key="GridCell.Tab.0.bottom" timestamp="1597930717852">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1286" height="163" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1596551490638" />
-    <state width="1286" height="163" key="GridCell.Tab.0.center" timestamp="1596551490637">
+    <state width="1323" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1597930717852" />
+    <state width="1323" height="178" key="GridCell.Tab.0.center" timestamp="1597930717852">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1286" height="163" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1596551490637" />
-    <state width="1286" height="163" key="GridCell.Tab.0.left" timestamp="1596551490637">
+    <state width="1323" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1597930717852" />
+    <state width="1323" height="178" key="GridCell.Tab.0.left" timestamp="1597930717852">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1286" height="163" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1596551490637" />
-    <state width="1286" height="163" key="GridCell.Tab.0.right" timestamp="1596551490637">
+    <state width="1323" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1597930717852" />
+    <state width="1323" height="178" key="GridCell.Tab.0.right" timestamp="1597930717852">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1286" height="163" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1596551490637" />
-    <state x="271" y="16" key="SettingsEditor" timestamp="1596285566435">
+    <state width="1323" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1597930717852" />
+    <state x="171" y="16" key="SettingsEditor" timestamp="1597926759124">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="271" y="16" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1596285566435" />
+    <state x="171" y="16" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597926759124" />
     <state x="919" y="264" key="com.goide.refactor.extractInterface.GoExtractInterfaceDialog" timestamp="1596200957954">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="919" y="264" key="com.goide.refactor.extractInterface.GoExtractInterfaceDialog/0.0.1366.728@0.0.1366.728" timestamp="1596200957954" />
-    <state x="995" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597236088251">
+    <state x="995" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1597930440357">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="995" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597236088251" />
+    <state x="995" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1597930440357" />
   </component>
 </project>

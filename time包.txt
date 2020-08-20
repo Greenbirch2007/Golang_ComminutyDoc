@@ -1,0 +1,195 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+//打印当前时间
+
+// %02d 中的2表示宽度，如果整数不够2列就补上
+func main(){
+	timeObj :=time.Now()
+	year :=timeObj.Year()
+	month:=timeObj.Month()
+	day:=timeObj.Day()
+	hour:=timeObj.Hour()
+	minute:=timeObj.Minute()
+	second :=timeObj.Second()
+	fmt.Printf("%d-%02d-%02d  %02d：%02d:%02d",year,month,day,hour,minute,second)
+
+
+}
+
+
+时间类型有一个自带的方法Format进行格式化
+需要注意的是go元种格式化时间模板不是常见的y-m-d h:m:s
+
+而是使用go的诞生时间2006年1月2号15点04分(记忆口诀 2006 1 2 3 4)
+
+
+
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+/*
+2006年
+01月
+02日
+03时 12小时制，15 24小时制
+04分
+05秒
+
+*/
+func main(){
+	timeObj := time.Now()
+	// 12小时制
+	//var str = timeObj.Format("2006-01-02 03:04:05")
+	//fmt.Println(str)
+
+	var str = timeObj.Format("2006-01-02 15:04:05")
+	fmt.Println(str)
+
+
+}
+
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+/*
+获取当前时间戳
+时间戳是自1970年1月1日(08:00:00GMT)
+至当前时间的总秒数，也称为Unix时间戳(UnixTimetamp)
+*/
+func main(){
+	timeObj := time.Now()
+	unixtime := timeObj.Unix() //获取当前的时间戳
+	fmt.Println(unixtime)
+
+}
+
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+/*
+时间戳转换为日期字符串
+存储在数据库中都是按照时间戳存储的
+在应用上转化为日期
+*/
+func main(){
+	unixTime := 1597925344
+	timeObj:=time.Unix(int64(unixTime),0)
+	d :=timeObj.Format("2006-01-02 15:04:05")
+	fmt.Println(d)
+
+}
+
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+/*
+把一个日期字符串转化为时间戳
+
+*/
+func main(){
+	var str = "2020-06-06 16:16:18"
+	var tmp  = "2006-01-02 15:04:05"
+	timeObj,_ :=time.ParseInLocation(tmp,str,time.Local)
+	fmt.Println(timeObj) //2020-06-06 16:16:18 +0800 CST
+	fmt.Println(timeObj.Unix()) //1591431378
+}
+
+
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+/*
+时间间隔
+
+time.Duration
+时间间隔的常量
+	Nanosecond  Duration = 1
+	Microsecond          = 1000 * Nanosecond
+	Millisecond          = 1000 * Microsecond
+	Second               = 1000 * Millisecond
+	Minute               = 60 * Second
+	Hour                 = 60 * Minute
+
+*/
+func main(){
+	fmt.Println(time.Millisecond) //1毫秒
+	fmt.Println(time.Second)
+}
+
+
+
+
+
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+/*
+
+定时器 两种方法
+
+1. 使用time.NewTicker(时间间隔)来设置定时器
+2.time.Sleep(time.Second) 来时间定时器
+*/
+
+func main(){
+	//ticker := time.NewTicker(time.Second)
+	//
+	//for t := range ticker.C {
+	//	fmt.Println(t)
+	//}
+
+
+	//ticker := time.NewTicker(time.Second)
+	//n :=5
+	//for t := range ticker.C {
+	//	n--
+	//	fmt.Println(t)
+	//	if n==0{
+	//		ticker.Stop() //终止定时器继续执行
+	//		break
+	//	}
+	//}
+	//休眠功能更
+	//fmt.Println("aaa1")
+	//time.Sleep(time.Second)
+	//fmt.Println("aaa2")
+	//time.Sleep(time.Second)
+	//fmt.Println("aaa3")
+	//time.Sleep(time.Second *5)
+	//fmt.Println("aaa4")
+	for {
+		time.Sleep(time.Second)
+		fmt.Println("执行定时器任务")
+	}
+
+
+}
