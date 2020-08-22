@@ -1,0 +1,63 @@
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+/*
+
+嵌套结构体和json序列化反序列化
+*/
+
+type Student struct {
+	Id int
+	Gender string
+	Name string
+}
+
+type Class struct {
+	Title string
+	Student []Student
+}
+
+func main(){
+	//c := Class{
+	//	Title: "001班级",
+	//	Student: make([]Student,0,222),
+	//}
+	//for i := 1; i <10; i++ {
+	//	s := Student{
+	//		Id :i,
+	//		Gender: "男",
+	//		//特殊的字符串拼接方法
+	//		Name: fmt.Sprint("stu_%v",i),
+	//	}
+	//	c.Student=append(c.Student,s)
+	//}
+	//fmt.Println(c)
+	//
+	//strByte,err := json.Marshal(c)
+	//if err !=nil{
+	//	fmt.Println(err)
+	//}else {
+	//	strJson := string(strByte)
+	//	fmt.Println(strJson)
+	//}
+	str := `{"Title":"001班级","Student":[{"Id":1,"Gender":"男","Name":"stu_%v1"},{"Id":2,"Gender":"男","Name":"stu_%v2"},{"Id":3,"Gender":"男","Name":"stu_%v3"},{"Id":4,"Gender":"男","Name":"stu_%v4"},{"Id":5,"Gender":"男","Name":"stu_%v5"},{"Id":6,"Gender":"男","Name":"stu_%v6"},{"Id":7,"Gender":"男","Name":"stu_%v7"},{"Id":8,"Gender":"男","Name":"stu_%v8"},{"Id":9,"Gender":"男","Name":"stu_%v9"}]}`
+	//c1 := &Class{}
+	//err := json.Unmarshal([]byte(str),c1)
+	var c1 = Class{} //用这种方式初始化结构体
+	err := json.Unmarshal([]byte(str),&c1)
+	if err !=nil{
+
+		fmt.Println(err)
+	}else {
+		//fmt.Printf("%#v",c1)
+		fmt.Printf("%v",c1.Title)
+	}
+
+
+
+}
+

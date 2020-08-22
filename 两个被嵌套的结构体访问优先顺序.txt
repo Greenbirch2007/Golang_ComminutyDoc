@@ -1,0 +1,53 @@
+package main
+
+import "fmt"
+
+/*
+
+匿名结构体
+
+关于嵌套结构体的字段名冲突
+嵌套结构体内部可能存在相同的字段名。这个时候为了避免
+歧义需要制定具体的内嵌结构体字段
+
+
+*/
+
+type User struct {
+	Username string
+	Password string
+	Email
+	Address  //表示User结构体嵌套Address结构体
+}
+
+type Address struct {
+	Name string
+	Phone string
+	city string
+	AddTime string
+}
+
+type Email struct {
+	Accout string
+
+	AddTime string
+}
+
+
+func main(){
+
+	var u User
+	u.Username = "dsd"
+	u.Password ="1122"
+	u.Address.Name = "sangz"
+	u.Address.Phone = "111"
+	u.Address.city = "东京"
+	u.Address.AddTime ="2020-8-22"
+
+
+	fmt.Printf("%$v \n ",u)
+	u.city = "北京" //当访问结构体成员时现在结构体中查找该字段，找不到再去匿名结构体中查找
+	fmt.Printf("%$v ",u)
+
+}
+

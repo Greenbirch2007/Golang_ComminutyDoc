@@ -1,0 +1,112 @@
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+/*
+
+结构体与json
+相互转换，序列化，反序列化
+
+比如，golang给app或小程序提供api接口数据，
+这时会涉及结构体和json之间的相互转换
+
+golang json序列化是把结构体数据转化成json各式的字符串
+golang json反序列化是把json数据转化成golang中的结构体对象
+
+
+golang 中序列化和反序列化主要通过"encoding/json"包
+json.Marshall()
+
+结构体实例----json.Marsal(得到的是一个[]byte,byte类型的切片)----string()----json
+*/
+
+type Student struct {
+	ID int
+	Gender string
+	name string //私有属性不能被json包访问
+	Sno string
+}
+
+
+func main(){
+	var s1 = Student{
+		ID:12,
+		Gender: "1",
+		name: "SAF",
+		Sno: "9",
+	}
+	fmt.Printf("%#V ",s1) //{%!V(int=12) %!V(string=1) %!V(string=SAF) %!V(string=9)}
+	jsonBye,_ := json.Marshal(s1)
+	jsonStr :=  string(jsonBye)
+	fmt.Println(jsonStr)
+
+
+}
+
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+/*
+
+结构体与json
+相互转换，序列化，反序列化
+
+比如，golang给app或小程序提供api接口数据，
+这时会涉及结构体和json之间的相互转换
+
+golang json序列化是把结构体数据转化成json各式的字符串
+golang json反序列化是把json数据转化成golang中的结构体对象
+
+
+golang 中序列化和反序列化主要通过"encoding/json"包
+json.Marshall()
+
+结构体实例----json.Marsal(得到的是一个[]byte,byte类型的切片)----string()----json
+
+
+json---``字符串化---json.Unmarshal[] err :=json.Unmarshal([]byte(str),&s1)
+
+*/
+
+type Student struct {
+	ID int
+	Gender string
+	name string //私有属性不能被json包访问
+	Sno string
+}
+
+
+func main(){
+	//json字符串  使用了``
+	var str =`{"ID":12,"Gender":"1","Sno":"9"}`
+	var s1 Student
+	err :=json.Unmarshal([]byte(str),&s1)
+	if err !=nil{
+		fmt.Println(err)
+	}
+	fmt.Printf("%#v",s1)
+
+}
+//	var s1 = Student{
+//		ID:12,
+//		Gender: "1",
+//		name: "SAF",
+//		Sno: "9",
+//	}
+//	fmt.Printf("%#V ",s1) //{%!V(int=12) %!V(string=1) %!V(string=SAF) %!V(string=9)}
+//	jsonBye,_ := json.Marshal(s1)
+//	jsonStr :=  string(jsonBye)
+//	fmt.Println(jsonStr)
+//
+//
+
+//}
+
+ //

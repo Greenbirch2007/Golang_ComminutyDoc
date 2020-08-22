@@ -1,0 +1,36 @@
+package main
+
+import "fmt"
+
+/*
+
+结构体嵌套
+
+*/
+
+type User struct {
+	Username string
+	Password string
+	Sex string
+	Age int
+	Address Address //表示User结构体嵌套Address结构体
+}
+
+type Address struct {
+	Name string
+	Phone string
+	city string
+}
+
+
+func main(){
+
+	var u User
+	u.Username = "dsd"
+	u.Password ="1122"
+	u.Address.Name = "sangz"
+	u.Address.Phone = "111"
+	fmt.Printf("%$v ",u)
+
+}
+

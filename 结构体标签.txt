@@ -1,0 +1,54 @@
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+/*
+接哦固体标签Tag
+
+Tag是结构体的元信息，可以在运行的时候通过反射的机制读取出来
+Tag在结构体字段的后方定义，由一堆反引号包裹起来
+
+`key1:"value1" key2:"value2"`
+*/
+
+type Student struct {
+	ID int 	`json:"id"` //通过自定tag实现json序列化gi字段时的key
+	Gender string
+	name string //私有属性不能被json包访问
+	Sno string
+}
+
+
+func main(){
+	var s1 = Student{
+		ID: 12,
+		Gender: "3DD",
+		name: "ss",
+		Sno: "OMI",
+
+	}
+	fmt.Printf("%#v \n",s1)
+	jsonByte ,_ := json.Marshal(s1)
+	jsonStr := string(jsonByte)
+	fmt.Printf("%v",jsonStr)
+
+}
+//	var s1 = Student{
+//		ID:12,
+//		Gender: "1",
+//		name: "SAF",
+//		Sno: "9",
+//	}
+//	fmt.Printf("%#V ",s1) //{%!V(int=12) %!V(string=1) %!V(string=SAF) %!V(string=9)}
+//	jsonBye,_ := json.Marshal(s1)
+//	jsonStr :=  string(jsonBye)
+//	fmt.Println(jsonStr)
+//
+//
+
+//}
+
+ //

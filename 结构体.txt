@@ -1,0 +1,304 @@
+
+
+
+go语言中的基础数据类型可以表示一些使用的基本属性
+但是当想要表达一个事物的全部或部分属性时，
+这时再用单一的基本数据类型就无法满足需求
+go提供了一种自定义数据类型，可以封装多个基本数据类型
+这种结构体
+
+
+package main
+
+import "fmt"
+
+// 自定义类型
+
+type myInt int
+
+// 自定义一个方法类型
+type myFn func(int,int) int
+
+type Person struct {
+	name string
+	age int
+	sex string
+}
+
+//类型别名
+type myFloat = float64
+func main(){
+	var p1 Person //实例化Person结构体
+	p1.name = "张三"
+	p1.age = 99
+	p1.sex = "1"
+	fmt.Printf("%v %T\n",p1,p1)
+	fmt.Printf("%#v %T",p1,p1) //使用%#v来打印结构体信息
+	
+}
+
+package main
+
+import "fmt"
+
+// 自定义类型
+
+type myInt int
+
+// 自定义一个方法类型
+type myFn func(int,int) int
+
+
+
+//结构体首字母小写表示是私有的。大写表示公有的
+type Person struct {
+	name string
+	age int
+	sex string
+}
+
+//类型别名
+type myFloat = float64
+func main(){
+	//var p1 Person //实例化Person结构体
+	//p1.name = "张三"
+	//p1.age = 99
+	//p1.sex = "1"
+	//fmt.Printf("%v %T\n",p1,p1)
+	//fmt.Printf("%#v %T",p1,p1) //使用%#v来打印结构体信息
+	//第二种实例化方法 用new
+	//var p2 = new(Person)
+	//
+	//p2.name = "张三"
+	//p2.age = 99
+	//p2.sex = "1"
+	//
+	//
+	//fmt.Printf("%#v %T",p2,p2) //使用%#v来打印结构体信息
+	// &main.Person{name:"张三", age:99, sex:"1"} *main.Person
+	//注意，在golang中支持对结构体指针的直接使用.来访问结构体IDE成员
+	//p2.name="张三"，其实在底层是(*p2).name = "张三"
+
+	//第三种实例化结构体 &
+	//var p3 = &Person{}
+	//
+	//p3.name = "张三"
+	//p3.age = 99
+	//p3.sex = "1"
+	//
+	//
+	//fmt.Printf("%#v %T",p3,p3) //使用%#v来打印结构体信息
+
+	//第四种实例化结构体的方法
+	//var p4 = Person{
+	//	name: "hh",
+	//	age: 99,
+	//	sex: "1",
+	//}
+	//
+	//fmt.Printf("%v %T",p4,p4)
+
+	//第五种实例化结构体方法
+	//var p5 = &Person{
+	//	name: "hh",
+	//	age: 99,
+	//	sex: "1",
+	//}
+	//
+	//fmt.Printf("%v %T",p5,p5)
+
+	//第六种实例化结构体方法，
+
+	//var p6 = &Person{
+	//	name: "hh",
+	//
+	//}
+	//
+	//fmt.Printf("%v %T",p6,p6)
+
+
+	//第七种实例化结构体方法
+	var p7 =&Person{
+		"SS",
+		98,
+		"1",
+	}
+	fmt.Printf("%v %T",p7,p7)
+}
+
+
+package main
+
+import "fmt"
+
+// 自定义类型
+
+type myInt int
+
+// 自定义一个方法类型
+type myFn func(int,int) int
+/*
+值类型：数组，基本数据类型，结构体
+引用类型：切片，map
+
+golang没有类的概念旦可以给类型(结构体，自定义类型)定义方法
+所谓方法就是定义了接受者的函数，接受者的概念就类似其他语言的this或self
+
+golang中结构体实例是独立的  不会相互影响
+
+
+也可以给自定义增加方法
+
+
+*/
+
+
+//结构体首字母小写表示是私有的。大写表示公有的
+type Person struct {
+	Name string
+	Age int
+	Sex string
+	Height int
+}
+func (p Person) PrintInfo(){
+	fmt.Printf("%v  %v",p.Name,p.Age)
+}
+// 要修改结构体的属性，接受者就必须是一个结构体的指针
+
+func (p *Person) setInfo(name string, age int){
+	p.Name = name
+	p.Age = age
+}
+
+//类型别名
+type myFloat = float64
+func main(){
+	//var p1 Person //实例化Person结构体
+	//p1.name = "张三"
+	//p1.age = 99
+	//p1.sex = "1"
+	//fmt.Printf("%#v %T",p1,p1) //使用%#v来打印结构体信息
+	//p2 := p1
+	//p2.age = 100
+	////结构体是值类型
+	//fmt.Printf("%#v %T",p2,p2) //使用%#v来打印结构体信息
+	var p1 = Person{
+		"张三",
+		99,
+		"1",
+		1,
+	}
+	//p1.PrintInfo()
+	//p2 := p1
+	//p1.setInfo("sss",898)
+	//p1.PrintInfo()
+	//p2.PrintInfo()
+	var p2 = Person{
+		"ss",
+		46,
+		"1",
+		1,
+	}
+	//p2.PrintInfo()
+
+
+}
+
+package main
+
+import "fmt"
+
+// 自定义类型
+
+type myInt int
+
+// 自定义一个方法类型
+type myFn func(int,int) int
+/*
+值类型：数组，基本数据类型，结构体
+引用类型：切片，map
+
+golang没有类的概念旦可以给类型(结构体，自定义类型)定义方法
+所谓方法就是定义了接受者的函数，接受者的概念就类似其他语言的this或self
+
+golang中结构体实例是独立的  不会相互影响
+
+
+也可以给自定义增加方法
+注意，非本地类型不能定义方法，
+也是我们不能给别的包的类型定义方法
+
+*/
+
+type MyInt int
+func (m MyInt) printInfo(){
+	fmt.Println("自定义方法")
+}
+//结构体首字母小写表示是私有的。大写表示公有的
+type Person struct {
+	Name string
+	Age int
+	Sex string
+	Height int
+}
+func (p Person) PrintInfo(){
+	fmt.Printf("%v  %v",p.Name,p.Age)
+}
+// 要修改结构体的属性，接受者就必须是一个结构体的指针
+
+func (p *Person) setInfo(name string, age int){
+	p.Name = name
+	p.Age = age
+}
+
+//类型别名
+type myFloat = float64
+func main(){
+	var a MyInt =20
+	a.printInfo()
+
+}
+
+
+package main
+
+import "fmt"
+
+/*
+
+结构体的匿名字段
+结构体允许其成员字段在声明时没有字段名而只有类型，
+匿名字段主要在嵌套结构体使用
+
+类型名不能重复
+就用到了自定义类型？
+
+
+结构体的字段类型可以是:基本数据类型，也可以是切片，Map以及结构体
+
+如果结构体的字段类型是:指针，slice,,map的零值都是nil.也就是没有分配内存空间
+
+如果需要使用这样的资源，需要先make,分配内存空间，才能使用
+*/
+type Person struct {
+	Name  string
+	Age int
+	Hobby []string
+	map1 map[string]string
+}
+
+func main(){
+	var p Person
+	p.Name="张三"
+	p.Age =9
+	p.Hobby = make([]string,3,6)
+	p.Hobby[0] = "写代码1"
+	p.Hobby[1] = "写代码1"
+	p.Hobby[2] = "写代码"
+
+	p.map1 = make(map[string]string)
+	p.map1["address"] ="北京"
+	fmt.Printf("%#v",p)
+
+}
+
