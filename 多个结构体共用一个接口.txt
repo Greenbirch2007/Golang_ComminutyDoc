@@ -1,0 +1,84 @@
+package main
+
+import "fmt"
+
+type Animaler interface {
+	SetName(string)
+	Getname() string
+}
+
+
+type Dog struct {
+	Name string
+}
+
+func (d *Dog) SetName(name string){
+	d.Name = name
+}
+func (d *Dog)Getname()string{
+	return d.Name
+}
+
+func main(){
+	d := &Dog{
+		"Ð¡ºÚ",
+	}
+	var d1 Animaler = d
+	fmt.Println(d1.Getname())
+	d1.SetName("¹þÏ£")
+	fmt.Println(d1.Getname())
+
+}
+
+
+package main
+
+import "fmt"
+
+type Animaler interface {
+	SetName(string)
+	Getname() string
+}
+
+
+type Dog struct {
+	Name string
+}
+
+func (d *Dog) SetName(name string){
+	d.Name = name
+}
+func (d *Dog)Getname()string{
+	return d.Name
+}
+
+type Cat struct {
+	Name string
+}
+
+func (c *Cat) SetName(name string){
+	c.Name = name
+}
+func (c *Cat)Getname()string{
+	return c.Name
+}
+
+
+
+func main(){
+	d := &Dog{
+		"Ð¡ºÚ",
+	}
+	var d1 Animaler = d
+	fmt.Println(d1.Getname())
+	d1.SetName("¹þÏ£")
+	fmt.Println(d1.Getname())
+	c := &Cat{
+		"ß÷ß÷",
+	}
+	var c1 Animaler =c
+	fmt.Println(c1.Getname())
+	c1.SetName("ÁúÃ¨")
+	fmt.Println(c1.Getname())
+
+}

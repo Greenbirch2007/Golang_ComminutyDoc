@@ -1,0 +1,220 @@
+
+
+golang中空接口也可以直接当做类型来使用，可以表示任意类型
+空接口用途非常广
+
+
+package main
+
+
+
+
+
+//golang中空接口也可以直接当做类型来使用，可以表示任意类型
+func main(){
+	var a interface{}
+	a = 20
+	a ="ff"
+}
+
+1.空接口作为函数的额参数
+
+使用空接口实现可以接收任意类型的函数参数\
+
+
+
+package main
+
+import "fmt"
+
+func show(a interface{}){
+	fmt.Printf("%v %T",a,a)
+}
+
+//golang中空接口也可以直接当做类型来使用，可以表示任意类型
+func main(){
+	show(20)
+	show("S")
+
+}
+
+2.map的值实现空接口
+
+使用空接口实现可以保存任意值得字典
+
+//空接口作为 map值
+
+
+package main
+
+import "fmt"
+
+func show(a interface{}){
+	fmt.Printf("%v %T",a,a)
+}
+
+//golang中空接口也可以直接当做类型来使用，可以表示任意类型
+func main(){
+
+	var m1 = make(map[string]interface{})
+	m1["sdf"] ="asdf"
+	m1["sd"]=11
+	fmt.Println(m1)
+
+}
+
+
+3.切片实现空接口
+
+package main
+
+import "fmt"
+
+
+
+//golang中空接口也可以直接当做类型来使用，可以表示任意类型
+func main(){
+
+
+	var s1 =[]interface{}{1,6,"asd"}
+	fmt.Println(s1)
+
+}
+
+四  类型断言
+
+
+一个接口的值(简称接口值)是由一个具体类型和具体类型的值两部分组成的
+这两个部分分别称为动态类型和动态值
+
+如果想要判断空接口中的类型，就可以使用类型断言
+
+x.(T)
+x:表示类型为interface{}的变量
+T:表示断言x可能是的类型
+
+
+package main
+
+import "fmt"
+
+//golang中空接口也可以直接当做类型来使用，可以表示任意类型
+func main(){
+
+	var a interface{}
+	a= "sdd"
+	v,ok := a.(int)
+	if ok{
+		fmt.Println(v)
+	}else{
+		fmt.Println("断言失败")
+	}
+
+}
+
+
+注意：类型.(type)只能结合switch语句使用
+
+
+package main
+
+import "fmt"
+
+
+//定义一个方法，恶意传入任意数据类型，
+//然后根据不同的类型实现不同的功能
+func justifyType(x interface{}){
+	switch v:=x.(type) {
+	case string:
+		fmt.Printf("%v",v)
+	case int:
+		fmt.Printf("%v",v)
+	default:
+		fmt.Println("failed")
+	}
+}
+
+//golang中空接口也可以直接当做类型来使用，可以表示任意类型
+func main(){
+
+	justifyType(8)
+	justifyType("22")
+	a :=[]interface{}{1,3}
+	justifyType(a)
+
+}
+
+类型断言 也可以用于类型结构体
+
+package main
+
+import "fmt"
+
+
+//接口只是一个规范
+//接口-----结构体-----结构体方法实现这个规范---结构体声明实例化---声明接口--让接口等于结构体（从而结构体的实例就实现了接口）
+// 注意最后继承时，是让声明的接口等于实例化的结构体
+type Usber interface {
+	start()
+	stop()
+
+}
+
+
+//电脑
+
+type Computer struct {
+
+}
+
+func (c Computer) work(usb Usber){
+	//要判断usb的类型
+	if _,ok:=usb.(Phone);ok{ //类型断言
+		usb.start()
+	}else{
+		usb.stop()
+	}
+	usb.start()
+	usb.stop()
+}
+
+
+//手机
+type Phone struct {
+	Name string
+	//手机要实现usb接口的话必须得实现usb接口中的所有方法
+}
+func (p Phone) start(){
+	fmt.Println(p.Name,"启动")
+}
+func (p Phone) stop(){
+	fmt.Println(p.Name,"关闭")
+}
+
+
+//照相机
+type Camera struct {
+
+}
+
+func (p Camera) start() {
+	fmt.Println("相机启动")
+}
+
+func (p Camera) stop() {
+	fmt.Println("相机关闭")
+}
+
+
+
+//如果接口里面有方法，必须要通过结构体或自定义方法来实现这个接口
+func main(){
+	var computer = Computer{}
+	var phone = Phone{
+		"小米",
+	}
+	var carema = Camera{}
+	computer.work(phone)
+	computer.work(carema)
+
+}

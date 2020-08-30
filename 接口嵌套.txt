@@ -1,0 +1,41 @@
+
+接口与接口间可以通过嵌套创造新的接口
+
+package main
+
+import "fmt"
+
+type Sayinerface interface {
+	say(string)
+}
+
+type Movieinerface interface {
+	movie()string
+}
+
+type Animal interface { //结构体的嵌套
+	Sayinerface
+	Movieinerface
+}
+//
+type Dog struct {
+	Name string
+}
+func (d *Dog)say(name string){
+	d.Name =name
+}
+func (d Dog)movie()string{
+	return d.Name
+}
+
+
+func main(){
+	 a := &Dog{
+		"小红花",
+	}
+	var a1 Animal = a
+	fmt.Println(a1.movie())
+	a1.say("sss")
+	fmt.Println(a1.movie())
+
+}

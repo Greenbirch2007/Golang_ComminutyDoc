@@ -1,0 +1,186 @@
+
+值接收者
+
+如果结构体中的方法是值接受者，那么实例化后的结构体值类型和结构体指针类型都可以复制个接口变量
+type Phone struct {
+	Name string
+	//手机要实现usb接口的话必须得实现usb接口中的所有方法
+}
+func (p Phone) start(){
+	fmt.Println(p.Name,"启动")
+}
+func (p Phone) stop(){
+	fmt.Println(p.Name,"关闭")
+}
+
+
+(p Phone) 就是值接收者
+
+package main
+
+import "fmt"
+
+
+//接口只是一个规范
+//接口-----结构体-----结构体方法实现这个规范---结构体声明实例化---声明接口--让接口等于结构体（从而结构体的实例就实现了接口）
+// 注意最后继承时，是让声明的接口等于实例化的结构体
+type Usber interface {
+	start()
+	stop()
+
+}
+
+
+//电脑
+
+type Computer struct {
+
+}
+
+func (c Computer) work(usb Usber){
+	//要判断usb的类型
+	if _,ok:=usb.(Phone);ok{ //类型断言
+		usb.start()
+	}else{
+		usb.stop()
+	}
+	usb.start()
+	usb.stop()
+}
+
+
+//手机
+type Phone struct {
+	Name string
+	//手机要实现usb接口的话必须得实现usb接口中的所有方法
+}
+func (p Phone) start(){
+	fmt.Println(p.Name,"启动")
+}
+func (p Phone) stop(){
+	fmt.Println(p.Name,"关闭")
+}
+
+
+//照相机
+type Camera struct {
+
+}
+
+func (p Camera) start() {
+	fmt.Println("相机启动")
+}
+
+func (p Camera) stop() {
+	fmt.Println("相机关闭")
+}
+
+
+
+//如果接口里面有方法，必须要通过结构体或自定义方法来实现这个接口
+func main(){
+	var p1 = Phone{
+		"小米",
+	}
+	var p2 Usber = p1
+	p2.start()
+	var p3 = &Phone{
+		"apple手机",
+	}
+	var p4 Usber =p3
+	p4.start()
+
+}
+
+package main
+
+import "fmt"
+
+
+//接口只是一个规范
+//接口-----结构体-----结构体方法实现这个规范---结构体声明实例化---声明接口--让接口等于结构体（从而结构体的实例就实现了接口）
+// 注意最后继承时，是让声明的接口等于实例化的结构体
+type Usber interface {
+	start()
+	stop()
+
+}
+
+
+//电脑
+
+type Computer struct {
+
+}
+
+func (c Computer) work(usb Usber){
+	//要判断usb的类型
+	if _,ok:=usb.(*Phone);ok{ //类型断言
+		usb.start()
+	}else{
+		usb.stop()
+	}
+	usb.start()
+	usb.stop()
+}
+
+
+//手机
+type Phone struct {
+	Name string
+	//手机要实现usb接口的话必须得实现usb接口中的所有方法
+}
+func (p *Phone) start(){ //指针接收者
+	fmt.Println(p.Name,"启动")
+}
+func (p *Phone) stop(){
+	fmt.Println(p.Name,"关闭")
+}
+
+
+//照相机
+type Camera struct {
+
+}
+
+func (p Camera) start() {
+	fmt.Println("相机启动")
+}
+
+func (p Camera) stop() {
+	fmt.Println("相机关闭")
+}
+
+
+
+//如果接口里面有方法，必须要通过结构体或自定义方法来实现这个接口
+func main(){
+	// 错误的写法
+	//main.go:24:14: impossible type assertion:
+	//        Phone does not implement Usber (start method has pointer receiver)
+	//.\main.go:67:6: cannot use p1 (type Phone) as type Usber in assignment:
+	//        Phone does not implement Usber (start method has pointer receiver)
+
+
+	//var p1 = Phone{
+	//	"小米",
+	//}
+	//var p2 Usber = p1
+	//p2.start()
+	//var p3 = &Phone{
+	//	"apple手机",
+	//}
+	//var p4 Usber =p3
+	//p4.start()
+	var phone1 = &Phone{
+		"小米",
+
+	}
+	var p1 Usber = phone1
+	p1.start()
+}
+
+指针接收者
+
+如果结构体中的方法是指针接收者，那么实例化后结构体指针类型
+都可以赋值给接口变量，结构体值类型没法赋值给接口变量

@@ -1,0 +1,32 @@
+
+
+1.在github上找到第三方包包
+
+htts://pkg.go.dev/ 可以查找常见的的golang第三方包
+
+2. 安装这个包
+
+
+第一种安装方法：(全局)
+go get github.com/shopspring/decimal
+
+第二种方法
+
+go mod download (全局)
+依赖包会自动下载到$gopath/pkg/mod,多个项目可以共享缓存
+的mod,注意使用go mode download的时候会首先需要在
+你的项目中引入第三方包
+
+
+第三种
+
+go mod vendor
+
+
+将依赖复制到当前项目的vendor下(本项目)
+
+注意：使用go mod vendor的时候首先需要在你的
+项目里面引入第三方包
+
+GO111MODULE 
+3. 查看文档使用这个包
